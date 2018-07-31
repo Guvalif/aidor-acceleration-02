@@ -9,14 +9,14 @@ __license__   = 'The MIT License (http://opensource.org/licenses/mit-license.php
 # =============================================================================
 from time import sleep
 
-import cv2
+from cv2 import VideoCapture, imwrite
 
 
 # 定数定義・初期化処理
 # =============================================================================
 CAMERA_INDEX = 0
 
-capture_device = cv2.VideoCapture(CAMERA_INDEX)
+capture_device = VideoCapture(CAMERA_INDEX)
 
 
 # メインループ
@@ -24,6 +24,6 @@ capture_device = cv2.VideoCapture(CAMERA_INDEX)
 while True:
     result, frame = capture_device.read()
 
-    cv2.imwrite('frame.jpg', frame)
+    imwrite('frame.jpg', frame)
 
     sleep(1)

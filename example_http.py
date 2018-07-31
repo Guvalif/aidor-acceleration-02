@@ -7,8 +7,8 @@ __license__   = 'The MIT License (http://opensource.org/licenses/mit-license.php
 
 # 外部プログラムの読み込み
 # =============================================================================
-from bottle import (Bottle, response)
-import cv2
+from bottle import Bottle, response
+from cv2 import VideoCapture, imencode
 from wiringpi import *
 
 from adc import analogRead
@@ -24,15 +24,15 @@ SERVO_PIN  = 18
 
 CAMERA_INDEX = 0
 
-capture_device = cv2.VideoCapture(CAMERA_INDEX)
+capture_device = VideoCapture(CAMERA_INDEX)
 router         = Bottle()
 
 wiringPiSetupGpio()
 
 pinMode(SERVO_PIN, PWM_OUTPUT)
 pwmSetMode(PWM_MODE_MS)
-pwmSetRange(1024) # 1024 => 2^10 => 10[bit]に精度を設定
-pwmSetClock(375)  # 基本周波数が50[Hz]となるように、基準周波数21.6[MHz]を分周 { (21.6 * 10^6) / (1024 x 375) => 50[Hz] }
+pwmSetRange(1024)
+pwmSetClock(375)
 
 
 # URIの定義・HTTPサーバの起動
@@ -41,8 +41,8 @@ pwmSetClock(375)  # 基本周波数が50[Hz]となるように、基準周波数
 def image_get():
     map(lambda _: capture_device.read(), range(5))
 
-    result, frame = capture_device.read()
-    result, image = cv2.imencode('.jpg', frame)
+    _, frame = capture_device.read()
+    _, image = imencode('.jpg', frame)
 
     response.headers['Cache-Control'] = 'no-cache'
     response.content_type = 'image/jpg'
@@ -68,7 +68,7 @@ def sensor_get():
     return response_json
 
 
-@router.route('/v1/servo/<value:int>', method=['GET']) # 本来は'PUT'にすべきです
+@router.route('/v1/servo/<value:int>', method=['GET'])
 def servo_put(value):
     response_json = {
         'resource': 'servo',
