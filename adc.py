@@ -14,7 +14,7 @@ SPI_CH = 1
 SPEED  = 1000000
 
 
-class ADC():
+class ADC(object):
     def __init__(self, spi_ch, speed):
         self.spi_ch = spi_ch
         self.speed  = speed
