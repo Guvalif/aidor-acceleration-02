@@ -21,16 +21,16 @@ wiringPiSetupGpio()
 pinMode(SERVO_PIN, PWM_OUTPUT)
 pwmSetMode(PWM_MODE_MS)
 pwmSetRange(1024) # 1024 => 2^10 => 10[bit]に精度を設定
-pwmSetClock(375)  # 基本周波数が50[Hz]となるように、基準周波数21.6[MHz]を分周 { (21.6 * 10^6) / (1024 x 375) => 50[Hz] }
+pwmSetClock(375)  # 基本周波数が50[Hz]となるように、基準周波数21.6[MHz]を分周 { (21.6 x 10^6) / (1024 x 375) => 50[Hz] }
 
 
 # メインループ
 # =============================================================================
 while True:
-    pwmWrite(SERVO_PIN, 26)  # -90°相当のパルス幅を出力 (0.5[msec])
+    pwmWrite(SERVO_PIN, 26)  # -90°相当のパルス幅を出力 { 0.5[msec] => ((1000 / 50[Hz]) / 1024) * 26 }
 
     sleep(1)
 
-    pwmWrite(SERVO_PIN, 123) # +90°相当のパルス幅を出力 (2.4[msec])
+    pwmWrite(SERVO_PIN, 123) # +90°相当のパルス幅を出力 { 2.4[msec] => ((1000 / 50[Hz]) / 1024) * 123 }
 
     sleep(1)
