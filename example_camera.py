@@ -16,13 +16,13 @@ from cv2 import VideoCapture, imwrite
 # =============================================================================
 CAMERA_INDEX = 0
 
-capture_device = VideoCapture(CAMERA_INDEX)
+camera = VideoCapture(CAMERA_INDEX)
 
 
 # メインループ
 # =============================================================================
 while True:
-    result, frame = capture_device.read()
+    result, frame = camera.read()
 
     imwrite('frame.jpg', frame)
 

@@ -24,8 +24,8 @@ SERVO_PIN  = 18
 
 CAMERA_INDEX = 0
 
-capture_device = VideoCapture(CAMERA_INDEX)
-router         = Bottle()
+camera = VideoCapture(CAMERA_INDEX)
+router = Bottle()
 
 wiringPiSetupGpio()
 
@@ -39,9 +39,9 @@ pwmSetClock(375)
 # =============================================================================
 @router.route('/v1/image', method=['GET'])
 def image_get():
-    map(lambda _: capture_device.read(), range(5))
+    [ camera.read() for _ in xrange(5) ]
 
-    _, frame = capture_device.read()
+    _, frame = camera.read()
     _, image = imencode('.jpg', frame)
 
     response.headers['Cache-Control'] = 'no-cache'
