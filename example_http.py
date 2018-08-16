@@ -16,19 +16,17 @@ from adc import analogRead
 
 # 定数定義・初期化処理
 # =============================================================================
-LIGHT_PIN  = 0
-THERMO_PIN = 1
-VOLUME_PIN = 2
-MOTION_PIN = 26
-SERVO_PIN  = 18
-
+LIGHT_PIN    = 0
+THERMO_PIN   = 1
+VOLUME_PIN   = 2
+MOTION_PIN   = 26
+SERVO_PIN    = 18
 CAMERA_INDEX = 0
 
 camera = VideoCapture(CAMERA_INDEX)
 router = Bottle()
 
 wiringPiSetupGpio()
-
 pinMode(SERVO_PIN, PWM_OUTPUT)
 pwmSetMode(PWM_MODE_MS)
 pwmSetRange(1024)

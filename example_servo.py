@@ -17,7 +17,6 @@ from wiringpi import *
 SERVO_PIN = 18
 
 wiringPiSetupGpio()
-
 pinMode(SERVO_PIN, PWM_OUTPUT)
 pwmSetMode(PWM_MODE_MS)
 pwmSetRange(1024) # 1024 => 2^10 => 10[bit]に精度を設定
