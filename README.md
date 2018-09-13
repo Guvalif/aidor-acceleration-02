@@ -4,7 +4,7 @@ AIDOR ACCELERATION 基礎知識講座 第2回 | サンプルプログラム
 What's This?
 -------------------------------------------------------------------------------
 
-IoT・ロボットビジネス創出プログラム「[AIDOR ACCELERATION](https://www.imedio.or.jp/acceleration)」における、
+IoT・ロボットビジネス創出プログラム「[AIDOR ACCELERATION](https://teqs.jp/acceleration)」における、
 2018年度 基礎知識講座 第2回で使用したサンプルプログラムです。
 
 
@@ -34,7 +34,7 @@ sudo apt-get install python-opencv
 How to Use
 -------------------------------------------------------------------------------
 
-[ダウンロードリンク](https://github.com/Guvalif/imedio_0801/archive/master.zip)をクリックすることで、
+[ダウンロードリンク](https://github.com/Guvalif/aidor-acceleration-02/archive/master.zip)をクリックすることで、
 プログラムを一式ダウンロードできます。
 
 **ターミナル**上で`sudo idle`と入力し、**Python 2 IDLE**を起動します。
