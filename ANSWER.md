@@ -259,7 +259,7 @@ def analog_to_pwm(analog):
 # メインループ
 # =============================================================================
 while True:
-    pwmWrite(SERVO_PIN, )
+    pwmWrite(SERVO_PIN, analog_to_pwm(analogRead(VOLUME_PIN)))
 
     sleep(0.1)
 ```
