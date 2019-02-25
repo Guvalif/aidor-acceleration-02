@@ -12,6 +12,8 @@ IoTプロトタイピングワークショップ「ハードウェア概論編�
 - 2018/10/31: IoT・ロボットビジネス創出プログラム「[AIDOR ACCELERATION](https://teqs.jp/acceleration)」第2ターム 基礎知識講座 第2回
 - 2018/11/02: [IoTプロトタイピングワークショップ「ハードウェア概論編」@大阪](https://connpass.com/event/103997/)
 - 2018/12/15: [IoTプロトタイピングワークショップ「ハードウェア概論編」@東京](https://connpass.com/event/109698/)
+- 2019/02/05: [IoTプロトタイピングワークショップ「ハードウェア概論編」@大阪](https://connpass.com/event/113320/)
+- 2019/02/23: [IoTプロトタイピングワークショップ「ハードウェア概論編」@東京](https://connpass.com/event/117495/)
 
 
 Getting Started
@@ -49,7 +51,7 @@ How to Use
 
 なお、同梱されるプログラムは以下の通りです：
 
-- `adc.py`: A/DコンバータIC "MCP3208" で、アナログ信号を測定するためのライブラリ
+- `adc.py`: A/DコンバータIC "MCP3204" で、アナログ信号を測定するためのライブラリ
 - `example_analog.py`: アナログ信号を閲覧するプログラム
 - `example_digital.py`: デジタル信号を閲覧するプログラム
 - `example_camera.py`: カメラ画像を撮影するプログラム
